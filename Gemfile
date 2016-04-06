@@ -5,6 +5,7 @@ gem "httpclient", ">= 2.1.5.2"
 gem "json", ">= 1.1.9"
 gem "multipart-post", ">= 1.0.1"
 gem "oauth", ">= 0.4.3"
+gem "oauth2", "~> 1.1.0"
 
 group :development do
   gem "bundler", "~> 1.0"

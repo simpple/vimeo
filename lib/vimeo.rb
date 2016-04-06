@@ -5,6 +5,7 @@ require 'digest/md5'
 require 'net/http/post/multipart'
 
 $:.unshift(File.dirname(__FILE__))
+require 'vimeo/parser'
 require 'vimeo/simple'
 require 'vimeo/advanced'
 

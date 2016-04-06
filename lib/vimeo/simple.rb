@@ -6,9 +6,10 @@ require 'simple/channel'
 require 'simple/group'
 require 'simple/user'
 require 'simple/video'
+require 'simple/information'
 
 module Vimeo
   module Simple
-    
+
   end # Simple
 end # Vimeo
