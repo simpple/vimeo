@@ -18,9 +18,9 @@ Jeweler::Tasks.new do |gem|
     gem.name = "vimeo"
     gem.summary = %Q{A full featured Ruby implementation of the Vimeo API.}
     gem.description = %Q{A full featured Ruby implementation of the Vimeo API.}
-    gem.email = "matthooks@gmail.com"
-    gem.homepage = "http://github.com/matthooks/vimeo"
-    gem.authors = ["Matt Hooks"]
+    gem.email = "jwozniak@netkodo.com"
+    gem.homepage = "http://github.com/netkodo/vimeo"
+    gem.authors = ["Jarek Wozniak"]
     gem.rubyforge_project = "vimeo"
     gem.add_development_dependency "shoulda", ">= 2.11.3"
     gem.add_development_dependency "fakeweb", ">= 1.2.6"
@@ -42,35 +42,6 @@ end
 
 task :default => :test
 
-namespace :vimeo do
-  desc "Multi-step wizard to acquire an access_token. CONSUMER_KEY and CONSUMER_SECRET required."
-  task :auth do
-    require 'vimeo'
-
-    def ask(message)
-      print message
-      STDOUT.flush
-      STDIN.gets.chomp
-    end
-
-    consumer_key = ENV['CONSUMER_KEY']
-    consumer_secret = ENV['CONSUMER_SECRET']
-    base = Vimeo::Advanced::Base.new(consumer_key, consumer_secret)
-
-    request_token = base.get_request_token
-    oauth_secret = request_token.secret
-
-    puts "Please visit: #{base.authorize_url}"
-
-    oauth_token = ask("oauth_token=")
-    oauth_verifier = ask("oauth_verifier=")
-
-    access_token = base.get_access_token(oauth_token, oauth_secret, oauth_verifier)
-
-    puts "token: #{access_token.token}"
-    puts "secret: #{access_token.secret}"
-  end
-end
 
 require 'rdoc/task'
 Rake::RDocTask.new do |rdoc|

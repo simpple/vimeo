@@ -1,8 +1,8 @@
 module Vimeo
-  module Simple
+  module Version3
     class Base
       include HTTParty
-      base_uri 'https://vimeo.com/api'
+      base_uri 'https://api.vimeo.com'
       parser Vimeo::Parser
 
       def initialize(oauth_bearer = nil)
@@ -12,7 +12,11 @@ module Vimeo
       private
 
       def make_request(method, path, options = {})
-        self.class.send method, path, default_options.merge(options)
+        parse_response(self.class.send method, path, default_options.merge(options))
+      end
+
+      def parse_response(response)
+        JSON.parse(response)
       end
 
       def default_options

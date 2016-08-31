@@ -6,8 +6,7 @@ require 'net/http/post/multipart'
 
 $:.unshift(File.dirname(__FILE__))
 require 'vimeo/parser'
-require 'vimeo/simple'
-require 'vimeo/advanced'
+require 'vimeo/version_3'
 
 module Vimeo
 end
