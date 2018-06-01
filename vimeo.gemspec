@@ -206,7 +206,7 @@ Gem::Specification.new do |s|
     s.specification_version = 4
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
-      s.add_runtime_dependency(%q<httparty>, ["= 14.0.0"])
+      s.add_runtime_dependency(%q<httparty>, ["= 0.14.0"])
       s.add_runtime_dependency(%q<httpclient>, [">= 2.1.5.2"])
       s.add_runtime_dependency(%q<json>, ["= 1.6.6"])
       s.add_runtime_dependency(%q<multipart-post>, [">= 1.0.1"])
