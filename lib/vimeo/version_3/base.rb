@@ -5,8 +5,9 @@ module Vimeo
       base_uri 'https://api.vimeo.com'
       parser Vimeo::Parser
 
-      def initialize(oauth_bearer = nil)
+      def initialize(oauth_bearer = nil, api_version = "3.0")
         @oauth_bearer = oauth_bearer
+	@vimeo_api_version = api_version
       end
 
       private
@@ -26,6 +27,10 @@ module Vimeo
 
         unless @oauth_bearer.nil?
           default_options[:headers]["Authorization"] = "bearer #{@oauth_bearer}"
+        end
+        
+	unless @vimeo_api_version.nil?
+          default_options[:headers]["Accept"] = "application/vnd.vimeo.*+json;version=#{@vimeo_api_version}"
         end
 
         default_options
